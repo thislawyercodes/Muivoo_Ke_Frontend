@@ -1,24 +1,22 @@
-"use client";
-
 import React from 'react';
-import { Button, Container, Typography } from '@mui/material';
-import UtilButton from './UtilButton';
+import { Button} from '@mui/material';
 import Image from 'next/image';
 
-const Hero: React.FC = () => {
-  const handleScroll = () => {
-  };
+
+const Hero = () => {
+  const handleScroll = () => {};
 
   return (
     <div className="hero">
       <div className='flex-1 pt-36 padding-x'>
-        <Typography variant="h1" className='hero__title'>
+        <p className='hero__title'  color="text.secondary">
           Crafted with Care, Worn with Pride
-        </Typography>
-        <Typography variant="body1" className='hero__subtitle'>
+        </p>
+        <h3 className='hero__subtitle'>
           Discover a Collection of Ethically Made, Sustainable Fashion for a Stylish and Conscious Wardrobe
-        </Typography>
+        </h3>
         <Button
+          sx={{ textTransform: 'none',fontFamily:'Manrope' , }}
           disabled={false}
           type="button"
           variant="contained"

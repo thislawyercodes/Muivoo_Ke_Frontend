@@ -16,7 +16,7 @@ const tailwindColors = {
 };
 
 const tailwindFontFamily = {
-  inter: ['Inter', 'sans-serif'],
+  inter: ['Montserrat', 'sans-serif'],
 };
 
 const tailwindBackgroundImages = {
@@ -31,7 +31,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Inter, sans-serif',
+    fontFamily: 'Montserrat, sans-serif', 
   },
 });
 

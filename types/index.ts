@@ -6,3 +6,9 @@ export interface UtilButtonProps{
     handleClick?:MouseEventHandler<HTMLButtonElement>
     btnType?:"submit"|"button" ;
 }
+
+export interface SearchVendorProps{
+    vendor:string;
+    searchVendor:(vendor:string)=>void
+
+}
