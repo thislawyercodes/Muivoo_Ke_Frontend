@@ -1,38 +1,92 @@
+"use client"
 import React from 'react';
 import Link from 'next/link';
-import { AppBar, Container, Toolbar, Button } from '@mui/material';
+import {
+  Toolbar,
+  Button,
+  Menu,
+  MenuItem,
+  IconButton,
+} from '@mui/material';
 import Image from 'next/image';
-import UtilButton from './UtilButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonIcon from '@mui/icons-material/Person';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { useState } from 'react';
+import MiniNavBar from './MiniNavBar';
 
 const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleMenuClick = () => { };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const categories = ['E-commerce', 'Deals', 'Whats New', 'Delivery'];
+
   return (
-    <div >
-      <Container >
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'right' }}>
-          <Link href="/">
-            <Image
-              src="/logo.svg"
-              alt="Muivoo Ke Logo"
-              width={118}
-              height={18}
-              className="object-contain"
-            />
-          </Link>
-          <Link href="/about">
-              <Button color="inherit" sx={{ textTransform: 'none',fontFamily:'Manrope' ,}}>About Us</Button>
-            </Link>
-            <Link href="/stores">
-              <Button color="inherit" sx={{ textTransform: 'none' ,fontFamily:'Manrope' ,}}>Stores</Button>
-            </Link>
-            <Link href="/blog">
-              <Button color="inherit" sx={{ textTransform: 'none',fontFamily:'Manrope' , }}>Blog</Button>
-            </Link>
-            <Link href="sign-in">
-            <UtilButton title="Sign In" btnType="button" />
-            </Link>
-        </Toolbar>
-      </Container>
-    </div>
+      <><MiniNavBar /><Toolbar
+      className='flex-1 padding-x'
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'right',
+      }}
+    >
+      <Link href="/">
+        <Image
+          src="/muivoo_logo.png"
+          alt="Muivoo Ke Logo"
+          width={118}
+          height={18}
+          className="object-contain" />
+      </Link>
+      <div>
+        <Button
+          color="inherit"
+          sx={{ textTransform: 'none', fontFamily: 'Manrope' }}
+          aria-controls="categories-menu"
+          aria-haspopup="true"
+          onClick={handleMenuClick}
+        >
+          Categories <ArrowDropDownIcon />
+        </Button>
+        <Menu
+          id="categories-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+        >
+          {categories.map((category, index) => (
+            <MenuItem key={index} onClick={handleMenuClose}>
+              {category}
+            </MenuItem>
+          ))}
+        </Menu>
+      </div>
+      <Link href="/Deals">
+        <Button color="inherit" sx={{ textTransform: 'none', fontFamily: 'Manrope' }}>Deals</Button>
+      </Link>
+      <Link href="/whats-new">
+        <Button color="inherit" sx={{ textTransform: 'none', fontFamily: 'Manrope' }}>Whats New</Button>
+      </Link>
+      <Link href="/delivery">
+        <Button color="inherit" sx={{ textTransform: 'none', fontFamily: 'Manrope' }}>Delivery</Button>
+      </Link>
+      <Link href="/sign-in">
+        <IconButton color="inherit">
+          <PersonIcon />
+        </IconButton>
+      </Link>
+      <Link href="/add-to-cart">
+        <IconButton color="inherit">
+          <ShoppingCartIcon />
+        </IconButton>
+      </Link>
+    </Toolbar></>
   );
 };
 

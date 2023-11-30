@@ -1,30 +1,29 @@
 "use client"
-import { CustomFilter, Hero, SearchBar } from '@/components'
+import { CustomFilter, Hero, ProductItem, Products, SearchBar } from "@/components";
 import './globals.css';
 
-
-
-
-export default function Home() {
+export default async function Home() {
+  
   return (
     <main className="overflow-hidden">
-      <Hero/>
-<div className='mt-12 padding-x padding-y max-width' id="discover">
-  <h1 className='text-4xl dont-extrabold'>
-      Clothes catalogue
-  </h1>
-  <h2>Explore the clothes that  suit your personality!</h2>
-</div>
-<div className='home__filters'>
-  <SearchBar/ >
-<div className='home__filter-container '>
-  <CustomFilter/>
-  <CustomFilter />
-
-
-</div>
-</div>
-
-    </main> 
-  )
+      <Hero />
+      <div id="discover" className='flex-1 pt-5 md:pt-5 padding-x bg-white'>
+        <h1 className='text-3xl font-bold'>
+          Clothes catalogue
+        </h1>
+        <h2 className='text-lg font-normal'>
+          Explore the clothes that suit your personality!
+        </h2>
+        <div className='flex-1 pt-5 md:pt-5 '>
+        <SearchBar />
+        <div className='home__filter-container'>
+        </div>
+      </div>
+        <div className='home__products-wrapper'>
+          <Products/>
+        </div>
+      </div>
+     
+    </main>
+  );
 }

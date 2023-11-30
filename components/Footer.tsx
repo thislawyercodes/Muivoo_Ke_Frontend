@@ -3,7 +3,8 @@ import { Grid, Typography, Link as MuiLink, Box, Container } from '@mui/material
 import Image from 'next/image';
 import { footerLinks } from '@/constants';
 
-const Footer = () => {
+const Footer = async () => {
+   
     return (
         <footer className="border-t border-gray-100">
             <Container maxWidth="xl" component="footer" sx={{ py: 5 }}>
@@ -55,3 +56,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { SearchVendorProps } from '@/types';
 import { Combobox, Transition } from '@headlessui/react';
@@ -18,18 +19,9 @@ const SearchItem = ({ vendor, searchVendor }: SearchVendorProps) => {
     <div className="search-vendor">
       <Combobox>
         <div className="relative w-full">
-          <Combobox.Button className="absolute top-14px">
-            <Image
-              src="car-logo.svg"
-              alt="muivooke logo"
-              width={20}
-              height={20}
-              className="ml-4"
-            />
-          </Combobox.Button>
           <Combobox.Input
             className="search-vendor__input"
-            placeholder="vendor"
+            placeholder="search for a product"
             displayValue={(vendor: string) => vendor}
             onChange={(e) => setQuery(e.target.value)}
           />

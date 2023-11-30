@@ -1,12 +1,9 @@
-import type { Metadata } from 'next'
+"use client"
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-export const metadata: Metadata = {
-  title: 'Muivoo Ke',
-  description: 'Discover hand made sustainable clothing from Kenya!',
-}
+
 
 export default function RootLayout({
   children,
@@ -15,10 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-            <Navbar/>
-            {children}
-      <body className="relative"></body>
-      <Footer/>
+      <Navbar />
+      {children}
+      <body className="relative">
+      <Footer />
+      </body>
     </html>
   )
 }

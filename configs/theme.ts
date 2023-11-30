@@ -3,9 +3,9 @@ import { createTheme } from '@mui/material/styles';
 
 const tailwindColors = {
   black100: '#2B2C35',
-  primaryBrown: {
-    main: '#93704A',
-    100: '#93704A',
+  primaryGreen: {
+    main: '#003D29',
+    100: '#003D29',
   },
   secondaryOrange: '#f79761',
   lightWhite: {
@@ -27,7 +27,7 @@ const tailwindBackgroundImages = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: tailwindColors.primaryBrown.main,
+      main: tailwindColors.primaryGreen.main,
     },
   },
   typography: {

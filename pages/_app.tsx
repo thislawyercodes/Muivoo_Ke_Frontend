@@ -4,27 +4,27 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "@/configs/createEmotionCache";
 import { AppProps } from "next/app";
 
-const clientSideEmotionCache = createEmotionCache();
-
-const theme = createTheme({
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none'
-        },
-      },
-    },
-  },
-});
-
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps }: MyAppProps) {
+function MyApp({ Component, emotionCache, pageProps }: MyAppProps) {
+  const clientSideEmotionCache = emotionCache || createEmotionCache();
+
+  const theme = createTheme({
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: 'none'
+          },
+        },
+      },
+    },
+  });
+
   return (
-    <CacheProvider value={emotionCache}>
+    <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />
